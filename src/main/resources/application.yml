@@ -1,0 +1,53 @@
+server:
+  port: 9300
+  compression:
+    enabled: true
+
+feign:
+  circuitbreaker:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+spring:
+  profiles:
+    active: ${APP_PROFILE:dev}
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
+  config:
+    import: configserver:http://localhost:8888/?fail-fast=true&max-attempts=60&max-interval=10000&initial-interval=1000
+  application:
+    name: event
+  datasource:
+    tomcat:
+      max-active: 5
+    hikari:
+      minimum-idle: 3
+      maximum-pool-size: 5
+  flyway:
+    enabled: false
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        - '*'
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
