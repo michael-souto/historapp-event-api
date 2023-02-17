@@ -1,5 +1,6 @@
 package com.detrasoft.event.domain.services;
 
+import br.com.detrasoft.framework.cloudclient.service.GenericClientFallbackServiceFactory;
 import com.detrasoft.event.api.dtos.CharacterDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
