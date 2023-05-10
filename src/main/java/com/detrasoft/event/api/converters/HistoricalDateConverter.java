@@ -1,6 +1,6 @@
 package com.detrasoft.event.api.converters;
 
-import com.detrasoft.event.api.dtos.date.HistoricalDateDTO;
+import com.detrasoft.event.domain.dtos.date.HistoricalDateDTO;
 import com.detrasoft.event.domain.entities.date.HistoricalDate;
 import com.detrasoft.framework.api.dto.converters.GenericEntityDTOConverter;
 import org.springframework.beans.factory.annotation.Autowired;

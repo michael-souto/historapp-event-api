@@ -1,4 +1,4 @@
-package com.detrasoft.event.api.dtos.date;
+package com.detrasoft.event.domain.dtos.date;
 
 import com.detrasoft.framework.api.controllers.jackson.ResponseView;
 import com.detrasoft.framework.api.dto.GenericRepresentationModelDTO;

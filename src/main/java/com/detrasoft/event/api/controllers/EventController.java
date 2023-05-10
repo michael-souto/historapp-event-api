@@ -1,7 +1,7 @@
 package com.detrasoft.event.api.controllers;
 
 import com.detrasoft.event.api.assemblers.EventAssembler;
-import com.detrasoft.event.api.dtos.EventDTO;
+import com.detrasoft.event.domain.dtos.EventDTO;
 import com.detrasoft.event.domain.services.EventCRUDService;
 import com.detrasoft.framework.api.controllers.hateoas.GenericHateoasCRUDController;
 import org.springframework.beans.factory.annotation.Autowired;

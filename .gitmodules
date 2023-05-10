@@ -10,3 +10,9 @@
 [submodule "src/submodules/framework-cloudclient"]
 	path = src/submodules/framework-cloudclient
 	url = https://github.com/michael-souto/framework-cloudclient.git
+[submodule "src/submodules/framework-multitenant"]
+	path = src/submodules/framework-multitenant
+	url = https://github.com/michael-souto/framework-multitenant.git
+[submodule "src/submodules/framework-security"]
+	path = src/submodules/framework-security
+	url = https://github.com/michael-souto/framework-security.git

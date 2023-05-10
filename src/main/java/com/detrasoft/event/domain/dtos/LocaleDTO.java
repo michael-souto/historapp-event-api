@@ -1,4 +1,4 @@
-package com.detrasoft.event.api.dtos;
+package com.detrasoft.event.domain.dtos;
 
 import com.detrasoft.framework.api.controllers.jackson.ResponseView;
 import com.detrasoft.framework.api.dto.GenericRepresentationModelDTO;
@@ -11,8 +11,8 @@ import org.springframework.hateoas.server.core.Relation;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Relation(collectionRelation = "characters")
-public class CharacterDTO extends GenericRepresentationModelDTO<CharacterDTO> {
+@Relation(collectionRelation = "locales")
+public class LocaleDTO extends GenericRepresentationModelDTO<LocaleDTO> {
 
     @JsonView(ResponseView.findAndPersist.class)
     private Long id;

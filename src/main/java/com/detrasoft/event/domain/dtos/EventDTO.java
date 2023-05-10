@@ -1,6 +1,6 @@
-package com.detrasoft.event.api.dtos;
+package com.detrasoft.event.domain.dtos;
 
-import com.detrasoft.event.api.dtos.date.HistoricalDateDTO;
+import com.detrasoft.event.domain.dtos.date.HistoricalDateDTO;
 import com.detrasoft.framework.api.controllers.jackson.ResponseView;
 import com.detrasoft.framework.api.dto.GenericRepresentationModelDTO;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.hateoas.server.core.Relation;
 
+import javax.validation.constraints.NotBlank;
 import java.time.Instant;
 import java.util.List;
 
@@ -23,9 +24,11 @@ public class EventDTO extends GenericRepresentationModelDTO<EventDTO> {
     @JsonView({ResponseView.findAndPersist.class })
     private Long id;
 
+    @NotBlank
     @JsonView({ResponseView.findAndPersist.class })
     private String title;
 
+    @NotBlank
     @JsonView({ResponseView.findAndPersist.class })
     private String description;
 
@@ -33,13 +36,16 @@ public class EventDTO extends GenericRepresentationModelDTO<EventDTO> {
     private String tags;
 
     @JsonView({ResponseView.findAndPersist.class })
-    private HistoricalDateDTO firstPeriod;
+    private HistoricalDateDTO startOfPeriod;
 
     @JsonView({ResponseView.findAndPersist.class })
-    private HistoricalDateDTO finalPeriod;
+    private HistoricalDateDTO endOfPeriod;
 
     @JsonView({ ResponseView.persist.class, ResponseView.findById.class})
     private List<CharacterDTO> characters;
+
+    @JsonView({ ResponseView.persist.class, ResponseView.findById.class})
+    private List<LocaleDTO> locales;
 
     @JsonView({ ResponseView.post.class, ResponseView.find.class})
     private Instant createAt;

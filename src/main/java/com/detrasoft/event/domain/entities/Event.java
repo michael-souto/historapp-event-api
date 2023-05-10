@@ -42,17 +42,22 @@ public class Event extends GenericEntity implements Serializable {
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "historical_first_period_id", nullable = true, foreignKey = @ForeignKey(name = "fk1_event"))
-    private HistoricalDate firstPeriod;
+    private HistoricalDate startOfPeriod;
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "historical_final_period_id", nullable = true, foreignKey = @ForeignKey(name = "fk2_event"))
-    private HistoricalDate finalPeriod;
+    private HistoricalDate endOfPeriod;
 
     @ElementCollection
     @CollectionTable(name = "characters_event", joinColumns = @JoinColumn(name = "event_id", foreignKey = @ForeignKey(name = "fk1_characters_event")))
     @Column(name = "character_id")
     private List<Long> idsCharacters;
+
+    @ElementCollection
+    @CollectionTable(name = "locales_event", joinColumns = @JoinColumn(name = "event_id", foreignKey = @ForeignKey(name = "fk2_characters_event")))
+    @Column(name = "locale_id")
+    private List<Long> idsLocales;
 
     @Column(nullable = false, updatable = false)
     private Instant createAt;
