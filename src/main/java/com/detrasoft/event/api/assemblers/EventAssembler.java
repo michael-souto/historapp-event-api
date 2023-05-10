@@ -45,10 +45,17 @@ public class EventAssembler extends GenericRepresentationModelDTOAssembler<Event
             var request = characterClientService.findByListId(obj.getIdsCharacters());
             if (request != null && request.getBody() != null && request.getBody().size() > 0) {
                 dto.setCharacters(request.getBody().stream().map(
-                        x-> CharacterDTO
+                        x -> CharacterDTO
                                 .builder()
-                                    .id(x.getId())
-                                    .name(x.getName())
+                                .id(x.getId())
+                                .name(x.getName())
+                                .build()
+                ).toList());
+            } else {
+                dto.setCharacters(obj.getIdsCharacters().stream().map(
+                        x -> CharacterDTO
+                                .builder()
+                                .id(x)
                                 .build()
                 ).toList());
             }
@@ -59,10 +66,17 @@ public class EventAssembler extends GenericRepresentationModelDTOAssembler<Event
             var request = localeClientService.findByListId(obj.getIdsLocales());
             if (request != null && request.getBody() != null && request.getBody().size() > 0) {
                 dto.setLocales(request.getBody().stream().map(
-                        x-> LocaleDTO
+                        x -> LocaleDTO
                                 .builder()
                                 .id(x.getId())
                                 .name(x.getName())
+                                .build()
+                ).toList());
+            } else {
+                dto.setLocales(obj.getIdsLocales().stream().map(
+                        x -> LocaleDTO
+                                .builder()
+                                .id(x)
                                 .build()
                 ).toList());
             }

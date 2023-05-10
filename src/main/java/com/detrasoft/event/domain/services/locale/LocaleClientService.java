@@ -1,6 +1,6 @@
 package com.detrasoft.event.domain.services.locale;
 
-import br.com.detrasoft.framework.cloudclient.service.GenericClientService;
+import com.detrasoft.framework.cloudclient.service.GenericClientService;
 import com.detrasoft.event.domain.dtos.LocaleDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;

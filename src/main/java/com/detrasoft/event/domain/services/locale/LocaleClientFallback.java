@@ -1,6 +1,6 @@
 package com.detrasoft.event.domain.services.locale;
 
-import br.com.detrasoft.framework.cloudclient.service.GenericClientFallbackServiceFactory;
+import com.detrasoft.framework.cloudclient.service.GenericClientFallbackServiceFactory;
 import com.detrasoft.event.domain.dtos.LocaleDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
