@@ -97,7 +97,7 @@ public class EventAssembler extends GenericRepresentationModelDTOAssembler<Event
         }
 
         if (dto.getLocales() != null && dto.getLocales().size() > 0) {
-            event.setIdsCharacters(dto.getLocales().stream().map(LocaleDTO::getId).toList());
+            event.setIdsLocales(dto.getLocales().stream().map(LocaleDTO::getId).toList());
         }
     }
 

@@ -11,25 +11,24 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/event")
-public class CharacterEventController {
-
+public class EventLocalesController {
     @Autowired
     EventCRUDService service;
     @Autowired
     EventAssembler assembler;
 
     @JsonView(ResponseView.put.class)
-    @PostMapping(value = "/{id}/characters/{idCharacter}")
-    public ResponseEntity<EventDTO> addCharacter(@PathVariable Long id,@PathVariable Long idCharacter) {
+    @PostMapping(value = "/{id}/locales/{idLocale}")
+    public ResponseEntity<EventDTO> editLocale(@PathVariable Long id, @PathVariable Long idLocale) {
         return ResponseEntity.ok().body(assembler.toModel(
-                ((EventCRUDService) service).editCharacter(
-                        id, idCharacter, false),
+                ((EventCRUDService) service).editLocale(
+                        id, idLocale, false),
                 true));
     }
 
-    @DeleteMapping(value = "/{id}/characters/{idCharacter}")
-    public ResponseEntity<Void> deleteDeathDate(@PathVariable Long id, @PathVariable Long idCharacter) {
-        ((EventCRUDService) service).editCharacter(id, idCharacter,true);
+    @DeleteMapping(value = "/{id}/locales/{idLocale}")
+    public ResponseEntity<Void> deleteDeathDate(@PathVariable Long id, @PathVariable Long idLocale) {
+        ((EventCRUDService) service).editLocale(id, idLocale,true);
         return ResponseEntity.noContent().build();
     }
 }
